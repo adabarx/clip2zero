@@ -6,9 +6,11 @@ Inspired by [Baphometrix's clip to zero mixing strategy](https://www.youtube.com
 
 ## Parameters
 - Input
+
    Input gain, allows you to control how clipped your signal is.
 
 - Compensate
+
    Allows you to compensate the output gain based on the input gain to help the user refrain from over-clipping their track.
 
 ## Building
