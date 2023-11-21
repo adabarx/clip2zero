@@ -77,6 +77,8 @@ impl Plugin for Clip2Zero {
 
     const VERSION: &'static str = env!("CARGO_PKG_VERSION");
 
+    const HARD_REALTIME_ONLY: bool = false;
+
     // The first audio IO layout is used as the default. The other layouts may be selected either
     // explicitly or automatically by the host or the user depending on the plugin API/backend.
     const AUDIO_IO_LAYOUTS: &'static [AudioIOLayout] = &[AudioIOLayout {
@@ -162,6 +164,7 @@ impl ClapPlugin for Clip2Zero {
     const CLAP_DESCRIPTION: Option<&'static str> = Some("A short description of your plugin");
     const CLAP_MANUAL_URL: Option<&'static str> = Some(Self::URL);
     const CLAP_SUPPORT_URL: Option<&'static str> = None;
+    const CLAP_POLY_MODULATION_CONFIG: Option<PolyModulationConfig> = None;
 
     // Don't forget to change these features
     const CLAP_FEATURES: &'static [ClapFeature] = &[ClapFeature::AudioEffect, ClapFeature::Utility];
@@ -169,6 +172,7 @@ impl ClapPlugin for Clip2Zero {
 
 impl Vst3Plugin for Clip2Zero {
     const VST3_CLASS_ID: [u8; 16] = *b"Exactly16Chars!!";
+    const PLATFORM_VST3_CLASS_ID: [u8; 16] = *b"Exactly16Chars!!";
 
     // And also don't forget to change these categories
     const VST3_SUBCATEGORIES: &'static [Vst3SubCategory] =
